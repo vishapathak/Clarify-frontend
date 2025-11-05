@@ -29,14 +29,13 @@ const Login = () => {
                 values
               );
 
-              const { error, success, message, data, token } = res.data;
+              const { error, success, message, user, authToken } = res.data;
 
               if (success && !error) {
                 // ✅ Store token and user data
-                localStorage.setItem('authToken', token);
-                localStorage.setItem('user', JSON.stringify(data));
+                localStorage.setItem('authToken', authToken);
+                localStorage.setItem('user', JSON.stringify(user));
 
-                alert(message || 'Login successful!');
                 navigate('/profile');
               } else {
                 alert(message || 'Login failed. Please try again.');

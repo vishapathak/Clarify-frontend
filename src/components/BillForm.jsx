@@ -3,9 +3,8 @@ import * as Yup from "yup";
 
 const validationSchema = Yup.object({
   title: Yup.string().required("Required"),
-  invoiceNumber: Yup.string().required("Required"),
+  billNumber: Yup.string().required("Required"),
   date: Yup.string().required("Required"),
-  dueDate: Yup.string().required("Required"),
   businessDetails: Yup.object({
     name: Yup.string().required("Required"),
     address: Yup.string().required("Required"),
@@ -29,17 +28,16 @@ const validationSchema = Yup.object({
 });
 
 const initialValues = {
-  title: "Invoice",
-  invoiceNumber: "INV-" + Date.now(),
+  title: "Bill",
+  billNumber: "BILL-" + Date.now(),
   date: "",
-  dueDate: "",
   businessDetails: { name: "", address: "", city: "", representative: "" },
   clientDetails: { phone: "", email: "", name: "", address: "" },
   products: [{ name: "", sku: "", quantity: 1, unitPrice: 0 }],
   total: 0
 };
 
-export default function InvoiceForm({ onSubmit }) {
+export default function BillForm({ onSubmit }) {
   return (
     <Formik
       initialValues={initialValues}
@@ -59,7 +57,7 @@ export default function InvoiceForm({ onSubmit }) {
         <Form className="space-y-6">
           {/* Invoice Info */}
           <div>
-            <h3 className="font-medium mb-2">Invoice Details</h3>
+            <h3 className="font-medium mb-2">Bill Details</h3>
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-gray-700 mb-1">Title</label>
@@ -74,13 +72,13 @@ export default function InvoiceForm({ onSubmit }) {
               <div>
                 <label className="block text-gray-700 mb-1">Invoice Number</label>
                 <Field
-                  name="invoiceNumber"
+                  name="billNumber"
                   placeholder="Invoice Number"
                   className="input cursor-not-allowed bg-gray-100"
                   disabled
                 />
                 <ErrorMessage
-                  name="invoiceNumber"
+                  name="billNumber"
                   component="div"
                   className="text-red-500 text-xs mt-1"
                 />
@@ -91,16 +89,6 @@ export default function InvoiceForm({ onSubmit }) {
                 <Field name="date" type="date" className="input" />
                 <ErrorMessage
                   name="date"
-                  component="div"
-                  className="text-red-500 text-xs mt-1"
-                />
-              </div>
-
-              <div>
-                <label className="block text-gray-700 mb-1">Due Date</label>
-                <Field name="dueDate" type="date" className="input" />
-                <ErrorMessage
-                  name="dueDate"
                   component="div"
                   className="text-red-500 text-xs mt-1"
                 />

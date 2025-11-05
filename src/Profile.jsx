@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Profile = () => {
@@ -8,22 +9,22 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("authToken");
         if (!token) {
           setError("User not authenticated.");
           setLoading(false);
           return;
         }
 
-        const response = await fetch("https://your-api-url.com/profile", {
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/profile`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            Authorization: token,
           },
         });
 
-        const result = await response.json();
+        const result = await response.data;
 
         if (result.success && !result.error) {
           setUser(result.data);

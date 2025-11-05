@@ -32,7 +32,7 @@ const Registration = () => {
               );
 
               if (res.status === 200 || res.status === 201) {
-                alert('Account created successfully!');
+                // alert('Account created successfully!');
                 navigate('/login');
               } else {
                 alert('Registration failed. Please try again.');

@@ -1,4 +1,6 @@
 import React from "react";
+import { TiDocumentText } from "react-icons/ti";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -13,8 +15,8 @@ const Sidebar = () => {
         <div className="border-t border-gray-100">
           <div className="px-2">
             <div className="py-4">
-              <a
-                href="#"
+              <Link
+                to="/dashboard"
                 className="t group relative flex justify-center rounded-sm bg-blue-50 px-2 py-1.5 text-blue-700"
               >
                 <svg
@@ -40,13 +42,13 @@ const Sidebar = () => {
                 <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded-sm bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible">
                   General
                 </span>
-              </a>
+              </Link>
             </div>
 
             <ul className="space-y-1 border-t border-gray-100 pt-4">
               <li>
-                <a
-                  href="/invoices"
+                <Link
+                  to="/invoices"
                   className="group relative flex justify-center rounded-sm px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                 >
                   <svg
@@ -67,11 +69,11 @@ const Sidebar = () => {
                   <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded-sm bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible">
                     Invoices
                   </span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/bills"
+                <Link
+                  to="/bills"
                   className="group relative flex justify-center rounded-sm px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                 >
                   <svg
@@ -92,87 +94,51 @@ const Sidebar = () => {
                   <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded-sm bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible">
                     Billing
                   </span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/quotations"
+                <Link
+                  to="/quotations"
                   className="group relative flex justify-center rounded-sm px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="size-5 opacity-75"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-                    ></path>
-                  </svg>
+                  <TiDocumentText />
 
                   <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded-sm bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible">
                     Quotations
                   </span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="group relative flex justify-center rounded-sm px-2 py-1.5 text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="size-5 opacity-75"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                    ></path>
-                  </svg>
-
-                  <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded-sm bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible">
-                    Account
-                  </span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div className="sticky inset-x-0 bottom-0 border-t border-gray-100 bg-white p-2">
-        <a
-          href="#"
-          className="group relative flex w-full justify-center rounded-lg px-2 py-1.5 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+      <div
+        className="sticky inset-x-0 bottom-0 border-t border-gray-100 bg-white p-2 cursor-pointer"
+        onClick={() => {
+          // Add your logout logic here
+          localStorage.clear();
+          window.location.href = "/login";
+        }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="size-5 opacity-75"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-5 opacity-75"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-            ></path>
-          </svg>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+          ></path>
+        </svg>
 
-          <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded-sm bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible">
-            Logout
-          </span>
-        </a>
+        <span className="invisible absolute start-full top-1/2 ms-4 -translate-y-1/2 rounded-sm bg-gray-900 px-2 py-1.5 text-xs font-medium text-white group-hover:visible">
+          Logout
+        </span>
       </div>
     </div>
   );

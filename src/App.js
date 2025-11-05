@@ -47,33 +47,33 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            // <ProtectedRoute>
+            <ProtectedRoute>
               <Dashboard />
-            // </ProtectedRoute>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/invoices"
           element={
-            // <ProtectedRoute>
+            <ProtectedRoute>
               <Invoices />
-            // </ProtectedRoute>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/bills"
           element={
-            // <ProtectedRoute>
+            <ProtectedRoute>
               <Bills />
-            // </ProtectedRoute>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/quotations"
           element={
-            // <ProtectedRoute>
+            <ProtectedRoute>
               <Quotations />
-            // </ProtectedRoute>
+            </ProtectedRoute>
           }
         />
       </Routes>
