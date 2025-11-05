@@ -36,7 +36,7 @@ const Login = () => {
                 localStorage.setItem('authToken', authToken);
                 localStorage.setItem('user', JSON.stringify(user));
 
-                navigate('/profile');
+                navigate('/dashboard');
               } else {
                 alert(message || 'Login failed. Please try again.');
               }
